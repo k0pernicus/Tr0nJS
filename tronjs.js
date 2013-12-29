@@ -125,6 +125,7 @@ lightCycle.prototype.update = function() {
 
 /*
 Évènements liés aux touches up, down, left & right du clavier
+---> CONCEPTION A REVOIR
 */
 window.addEventListener("keydown", function(event) { keys[event.keyCode] = true; });
 window.addEventListener("keyup", function(event) { delete keys[event.keyCode];});
