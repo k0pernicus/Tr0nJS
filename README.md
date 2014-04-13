@@ -6,4 +6,7 @@ Tr0nJS
 ======
 
 ==Currently being programmed==
+
+======
+
 Need to create an AI + manage bug for the collisions (player).  
