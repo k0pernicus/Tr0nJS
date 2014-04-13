@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<meta charset="utf-8" />
+<title>Tr0nJS</title>
+<link rel="stylesheet" type="text/css" href="tronjs.css" media="all"/>
+</head>
+<body>
+<center>
+<h1>Tr0nJS</h1><h2>-->BÊTA<--</h2>
+<em>Tr0nJS</em> is a small <em>game</em> made in <em>JavaScript</em><br/>
+<br/>
+
+<div id="howTo">
+<h2><span class="button" id="howToPlay" onClick="javascript:afficher_cacher('howToPlayText');">How to Play?</span></h2>
+<div id="howToPlayText" style="display:none">
+<p>
+You will play against a basic IA - you're goal is to win at least 3
+  matches.</br>
+  You can play with the <b>up</b>, <b>down</b>, <b>left</b> &
+  <b>right</b> keys, of your computer's
+  keyboard!</br>
+  Soon, an application will be realeased for FirefoxOS and the Firefox
+  & Chrome browsers.</br>
+</p>
+</div>
+<h2><span class="button" id="license" onClick="javascript:afficher_cacher('licenseText');">License</span></h2>
+<div id="licenseText" style="display:none">
+<p>
+Free
+</p>
+</div>
+<h2><span class="button" id="download" onClick="javascript:afficher_cacher('downloadText');">Download...</span></h2>
+<div id="downloadText" style="display:none">
+<p>
+Mozilla Firefox browser (soon...)<br/>
+Chrome browser (soon...)<br/>
+Firefox OS apps (soon...)<br/>
+</p>
+</div>
+</div>
+
+<div id="canvasGame">
+<canvas id="myCanvas" width="560" height="360">
+</canvas>
+</div>
+
+<!--Scripts (JS)-->
+<script>
+function afficher_cacher(id) {
+	var search_id = document.getElementById(id);
+	if (search_id.style.display=="none")
+	{
+		search_id.style.display="block";	
+	}
+	else {
+		search_id.style.display="none";
+	}
+};
+</script>
+
+<script type="text/javascript" src="./JS/lightCycle.js"></script>
+<script type="text/javascript" src="./JS/main.js"></script>
+
+<!--Fin Scripts (JS)-->
+
+<br/>
+<br/>
+<footer>
+@WebTogz - <a href="mailto:antonin.carette@gmail.com">Contact</a> - <a href="http://www.kflynn.net">Website</a> - <a href="https://github.com/WebTogz/Tr0nJS">Github sources</a>
+</footer>
+</center>
+</body> </html>
