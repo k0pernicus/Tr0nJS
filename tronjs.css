@@ -1,0 +1,69 @@
+body {
+	width: 100%;	
+}
+
+em {
+	color: #2E64FE;
+}
+
+h1 {
+	font-size: 60px;
+	letter-spacing: 3px;
+	color: #2E64FE;
+	font-weight: bold;
+	font-family: comic-sans-ms sans-serif;
+	text-shadow: 3px -3px 3px black;
+	text-decoration: overline underline;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}	
+
+.button {
+	cursor: pointer;
+}
+
+.button:hover {
+	color: #2E64FE;
+	text-decoration: none;
+}
+
+#howTo {
+	float: left;
+	width: 33%;
+	height: 325px;
+	margin-top: 20px;
+	margin-left: 100px;
+	margin-bottom: 20px;
+	margin-right: 10px;
+	padding: 10 10 10 10;
+	border: 1px black solid;
+	border-radius: 4px;
+	box-shadow: 5px 5px 5px #2E64FE;
+	text-align: left;
+	overflow: auto;
+}
+
+#howTo h2 {
+	text-align: center;
+}
+
+#canvasGame {
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-bottom: 20px;
+	margin-right: 100px;
+	float: right;
+	border: 1px black solid;
+	box-shadow: 5px 5px 5px #2E64FE;
+}
+
+footer {
+	clear: both;
+	padding-top: 20px;
+	margin-bottom: 20px;
+}
+
+ul li {
+	text-align: left;
+	list-style-type: none;	
+}
