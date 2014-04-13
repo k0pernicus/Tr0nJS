@@ -1,12 +1,10 @@
 Tr0nJS
 ======
 
-A Tron-like game, made in JavaScript
+A Tron-like game, made in JavaScript.
 
 Ce qu'il reste à faire ::
-	- implémentation de la fonction "choc contre les queues des motos-adversaires
-	- instanciation des objets
-	- aperçu visuel
-	- re-conception des évènements liés au clavier
+	-Gérer le bug lié à la non-collision du joueur
+	-Créer une I.A.
 
-Ce qui est pour l'instant prévu :: Bêta-Test avant le 1er Février 2014
+Ce qui est pour l'instant prévu :: Bêta-Test prévue pour le 28 Avril 2014. 
