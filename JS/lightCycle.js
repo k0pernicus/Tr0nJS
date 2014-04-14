@@ -165,13 +165,13 @@ LightCycle.prototype.simplePredict = function(otherPlayer) {
             this.predictLeft(otherPlayer);
             break;
         case "right":
-            this.predictRight();
+            this.predictRight(otherPlayer);
             break;
         case "up":
-            this.predictUp();
+            this.predictUp(otherPlayer);
             break;
         case "down":
-            this.predictDown();
+            this.predictDown(otherPlayer);
             break;
     };
 };
@@ -184,16 +184,20 @@ LightCycle.prototype.predictLeft = function(otherPlayer) {
     /*For the ennemy*/
     if (otherPlayer.getCoordinates().indexOf(nextLeft+","+this.currentY) >= 0) {
         this.direction = this.choiceUpDown();
-        console.log("Rentré!");
-    };
+        return;
+    }
     /*For the wall*/
     if (nextLeft > 2*this.height) return;
     var directionNow = this.choiceUpDown();
     this.direction = (directionNow == null ? "left" : directionNow);
 };
 
-LightCycle.prototype.predictRight = function() {
+LightCycle.prototype.predictRight = function(otherPlayer) {
     var nextRight = this.currentX + this.height;
+    if (otherPlayer.getCoordinates().indexOf(nextRight+","+this.currentY) >= 0) {
+        this.direction = this.choiceUpDown();
+        return;
+    }
     if (nextRight < width - 2*this.height) return;
     var directionNow = this.choiceUpDown();
     this.direction = (directionNow == null ? "right" : directionNow);
@@ -207,15 +211,23 @@ LightCycle.prototype.choiceUpDown = function() {
     return null;
 };
 
-LightCycle.prototype.predictUp = function() {
+LightCycle.prototype.predictUp = function(otherPlayer) {
     var nextUp = this.currentY + this.height;
+    if (otherPlayer.getCoordinates().indexOf(this.currentX+","+nextUp) >= 0) {
+        this.direction = this.choiceLeftRight();
+        return;
+    }
     if (nextUp < 2*this.height) return;
     var directionNow = this.choiceLeftRight();
     this.direction = (directionNow == null ? "up" : directionNow);
 };
 
-LightCycle.prototype.predictDown = function() {
+LightCycle.prototype.predictDown = function(otherPlayer) {
     var nextDown = this.currentY - this.height;
+    if (otherPlayer.getCoordinates().indexOf(this.currentX+","+nextDown) >= 0) {
+        this.direction = this.choiceLeftRight();
+        return
+    }
     if (nextDown > height - 2*this.height) return;
     var directionNow = this.choiceLeftRight();
     this.direction = (directionNow == null ? "down" : directionNow);
