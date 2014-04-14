@@ -146,3 +146,83 @@ LightCycle.prototype.move = function() {
     this.calculatingCoordinates();
     this.pushCoordinates();
 };
+
+/*
+ predict is a function which be able to the lightCycle (AI) to move on the grid, with a simple/basic algorithm
+ */
+LightCycle.prototype.predict = function(otherPlayer) {
+    this.simplePredict(otherPlayer);
+    this.calculatingCoordinates();
+    this.pushCoordinates();
+};
+
+/*
+ Function which be able to see what is the current direction of the lightCycle, and execute the function associated at her
+ */
+LightCycle.prototype.simplePredict = function(otherPlayer) {
+    switch(this.direction) {
+        case "left":
+            this.predictLeft(otherPlayer);
+            break;
+        case "right":
+            this.predictRight();
+            break;
+        case "up":
+            this.predictUp();
+            break;
+        case "down":
+            this.predictDown();
+            break;
+    };
+};
+
+/*
+ predictLeft is a function which be used by the function predict to predict (SERIOUSLY???) what the lightCycle will be able to do -> up or right
+ */
+LightCycle.prototype.predictLeft = function(otherPlayer) {
+    var nextLeft = this.currentX - this.height;
+    /*For the ennemy*/
+    if (otherPlayer.getCoordinates().indexOf(nextLeft+","+this.currentY) >= 0) {
+        this.direction = this.choiceUpDown();
+        console.log("Rentré!");
+    };
+    /*For the wall*/
+    if (nextLeft > 2*this.height) return;
+    var directionNow = this.choiceUpDown();
+    this.direction = (directionNow == null ? "left" : directionNow);
+};
+
+LightCycle.prototype.predictRight = function() {
+    var nextRight = this.currentX + this.height;
+    if (nextRight < width - 2*this.height) return;
+    var directionNow = this.choiceUpDown();
+    this.direction = (directionNow == null ? "right" : directionNow);
+};
+
+LightCycle.prototype.choiceUpDown = function() {
+    /*If the lightCycle is at the extreme left, and can move up, we ask her to did this*/
+    if ((this.currentY + this.height) <= height) return "up";
+    /*If the lightCycle is at the extreme left, and can move down, we ask here to did this*/
+    if ((this.currentY + this.height) >= height) return "down";
+    return null;
+};
+
+LightCycle.prototype.predictUp = function() {
+    var nextUp = this.currentY + this.height;
+    if (nextUp < 2*this.height) return;
+    var directionNow = this.choiceLeftRight();
+    this.direction = (directionNow == null ? "up" : directionNow);
+};
+
+LightCycle.prototype.predictDown = function() {
+    var nextDown = this.currentY - this.height;
+    if (nextDown > height - 2*this.height) return;
+    var directionNow = this.choiceLeftRight();
+    this.direction = (directionNow == null ? "down" : directionNow);
+};
+
+LightCycle.prototype.choiceLeftRight = function() {
+    if ((this.currentX + this.height) >= width) return "left";
+    if ((this.currentX + this.height) <= width) return "right";
+    return null;
+};
