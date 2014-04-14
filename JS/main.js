@@ -14,6 +14,7 @@ content.clearRect(0,0,width,height);
  Counting the number of time we have fun!
  */
 var count_grid = 0;
+var max_count = 10;
 /*
  Boolean to know if we are be able to continue to play, or not
  */
@@ -100,7 +101,7 @@ Grid = {
     
     checkRenew: function() {
         incrementCountGrid();
-        if (count_grid >= 5) {
+        if (count_grid >= max_count) {
             continuePlay = false;
         }
     },
