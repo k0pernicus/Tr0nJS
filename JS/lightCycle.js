@@ -125,13 +125,15 @@ function LightCycle(name, x, y, direction, color) {
      Check if there are collisions or not
      */
     this.collision = function(player) {
+        /*If there is collision, return true*/
         if ((this.currentX < (this.width / 2)) ||
             (this.currentY < (this.height / 2)) ||
             (this.currentX > (Grid.width - (this.width / 2))) ||
             (this.currentY > (Grid.height - (this.height / 2))) ||
-            player.getCoordinates().indexOf(this.generateCoordinates()) >= 0) /*
-            || this.getCoordinates().indexOf(this.generateCoordinates()) >=0)                                                                   */
+            player.getCoordinates().indexOf(this.generateCoordinates()) >= 0)
+        /*|| this.getCoordinates().indexOf(this.generateCoordinates()) >=0)*/
             return true;
+        /*Else, return false*/
         return false;
     }
     
