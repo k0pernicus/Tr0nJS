@@ -99,12 +99,26 @@ function LightCycle(name, x, y, direction, color) {
     this.render = function() {
         content.fillStyle = this.color;
         content.beginPath();
+        this.renderMoveTo();
+        this.renderLineTo();
+        content.closePath();
+        content.fill();
+    };
+    
+    /*
+     Function which place the plot (to draw) at the current position of the lightCycle
+     */
+    this.renderMoveTo = function() {
         content.moveTo(this.currentX - (this.width / 2), this.currentY - (this.height / 2));
+    };
+    
+    /*
+     Function which be able to draw the path of the lightCycle
+     */
+    this.renderLineTo = function() {
         content.lineTo(this.currentX + (this.width / 2), this.currentY - (this.height / 2));
         content.lineTo(this.currentX + (this.width / 2), this.currentY + (this.height / 2));
         content.lineTo(this.currentX - (this.width / 2), this.currentY + (this.height / 2));
-        content.closePath();
-        content.fill();
     };
     
     /*

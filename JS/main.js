@@ -80,12 +80,9 @@ play = function() {
         programmer.move();
         programmer.render();
         if (programmer.collision(program)) Grid.renew(program);
-        programmer.pushCoordinates();
-        program.move();
-        program.pushCoordinates();
+        program.predict(programmer);
         program.render();
         if (program.collision(programmer)) Grid.renew(programmer);
-        program.pushCoordinates();
         //Grid.getConsoleLogStart();
     }
     else {
