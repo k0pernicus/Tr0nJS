@@ -9,4 +9,4 @@ Tr0nJS
 
 ======
 
-Need to create an AI + manage bug for the collisions (player).  
+manage bugs for the collisions (player) and to program a better Artificial Intelligence.  
