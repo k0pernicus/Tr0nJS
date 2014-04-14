@@ -9,7 +9,7 @@ Tr0nJS
 
 ======
 
-1rst: Manage bugs for the player collisions</br>  
-2nd: Build an elegant menu</br>
-3rd: Refactoring code</br>
-4th: To program a better Artificial Intelligence (based with probabilities)</br>
+1.	Manage bugs for the player collisions</br>  
+2.	Build an elegant menu</br>
+3.	Refactoring code</br>
+4.	To program a better Artificial Intelligence (based with probabilities)</br>
