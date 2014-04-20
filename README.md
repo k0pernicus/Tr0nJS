@@ -9,7 +9,6 @@ Tr0nJS
 
 ======
 
-1.	Manage bugs for the player collisions</br>  
+1.	Added correction to the IA in the case of a change of control
 2.	Build an elegant menu</br>
 3.	Refactoring code</br>
-4.	To program a better Artificial Intelligence (based with probabilities)</br>
