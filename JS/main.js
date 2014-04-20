@@ -43,9 +43,9 @@ var programmer = new LightCycle("Programmer", xProgrammer, yProgrammer, "right",
  */
 var keys = {
     left : [37,81],
-    up: [40,83],
+    up: [38,90],
     right: [39,68],
-    down: [38,90]
+    down: [40,83]
 };
 
 oppositeDirection = function(direction) {
