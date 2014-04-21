@@ -1,7 +1,7 @@
 /*
     lightCycle class
     Programmer: Carette Antonin
-    Date: 04/13/2014
+    Date: 04/21/2014
  */
 
 /*
@@ -139,6 +139,9 @@ function LightCycle (name, x, y, direction, color) {
         return false;
     };
     
+    /*
+     Will check the next position of the lightCycle object, with the current direction
+     */
     this.checkNextPosition = function() {
         switch(this.direction) {
         case "left":
@@ -160,10 +163,10 @@ function LightCycle (name, x, y, direction, color) {
         }
     };
     
-    /*ONLY ONE FUNCTION FOR THE PLAYER*/
+    /*FOR THE PLAYER*/
     
     /*
-     move is a function which be able to the lightCycle to move on the grid
+     'move' is a function which be able to the lightCycle to move on the grid
      */
     this.move = function () {
         this.calculatingCoordinates();
@@ -203,7 +206,9 @@ function LightCycle (name, x, y, direction, color) {
         }
     };
     
-    //FUNCTION OK
+    /*
+    Function which be able to predict the next direction, if the current one is "left"
+    */
     this.predictLeft = function (otherPlayer) {
         var nextLeft = this.currentX - this.height;
         var nextPosition = nextLeft+","+this.currentY;
@@ -212,6 +217,9 @@ function LightCycle (name, x, y, direction, color) {
         if (distanceWidth >= Grid.width || (otherPlayer.getCoordinates().indexOf(nextPosition)) >= 0 || (this.getCoordinates().indexOf(nextPosition) >= 0)) this.turnUpDown(otherPlayer);
     };
     
+    /*
+    Function which be able to predict the next direction, if the current one is "right"
+    */
     this.predictRight = function (otherPlayer) {
         var nextRight = this.currentX + this.height;
         var nextPosition = nextRight+","+this.currentY;
@@ -220,6 +228,9 @@ function LightCycle (name, x, y, direction, color) {
         if (distanceWidth <= 0 || (otherPlayer.getCoordinates().indexOf(nextPosition)) >= 0 || (this.getCoordinates().indexOf(nextPosition) >= 0)) this.turnUpDown(otherPlayer);
     };
     
+    /*
+    Function which be able to predict the next direction, if the current one is "up"
+    */
     this.predictUp = function (otherPlayer) {
         var nextUp = this.currentY - this.height;
         var nextPosition = this.currentX+","+nextUp;
@@ -228,6 +239,9 @@ function LightCycle (name, x, y, direction, color) {
         if (distanceHeight >= Grid.height || (otherPlayer.getCoordinates().indexOf(nextPosition)) >= 0 || (this.getCoordinates().indexOf(nextPosition) >= 0)) this.turnLeftRight(otherPlayer);
     };
     
+    /*
+    Function which be able to predict the next direction, if the current one is "down"
+    */
     this.predictDown = function (otherPlayer) {
         var nextDown = this.currentY + this.height;
         var nextPosition = this.currentX+","+nextDown;
@@ -236,6 +250,9 @@ function LightCycle (name, x, y, direction, color) {
         if (distanceHeight <= 0 || (otherPlayer.getCoordinates().indexOf(nextPosition)) >= 0 || (this.getCoordinates().indexOf(nextPosition) >= 0)) this.turnLeftRight(otherPlayer);
     };
     
+    /*
+    Function which be able change the direction of the lightCycle object to "up" or "down"
+    */
     this.turnUpDown = function (otherPlayer) {
         var nextUp = this.currentY - this.height;
         var nextDown = this.currentY + this.height;
@@ -251,6 +268,9 @@ function LightCycle (name, x, y, direction, color) {
         }
     };
     
+    /*
+    Function which be able change the direction of the lightCycle object to "left" or "right"
+    */
     this.turnLeftRight = function (otherPlayer) {
         var nextLeft = this.currentX - this.height;
         var nextRight = this.currentX + this.height;
