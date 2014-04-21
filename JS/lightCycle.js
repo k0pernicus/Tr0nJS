@@ -210,7 +210,6 @@ function LightCycle (name, x, y, direction, color) {
         var nextLeft = this.currentX - this.height;
         var nextPosition = nextLeft+","+this.currentY;
         var distanceWidth = Grid.width - nextLeft;
-        var distanceHeight = Grid.height - this.currentY;
         distanceWidth += this.height;
         if (distanceWidth >= Grid.width || (otherPlayer.getCoordinates().indexOf(nextPosition)) >= 0 || (this.getCoordinates().indexOf(nextPosition) >= 0)) this.turnUpDown(otherPlayer);
     };
@@ -219,7 +218,6 @@ function LightCycle (name, x, y, direction, color) {
         var nextRight = this.currentX + this.height;
         var nextPosition = nextRight+","+this.currentY;
         var distanceWidth = Grid.width - nextRight;
-        var distanceHeight = Grid.height - this.currentY;
         distanceWidth -= this.height;
         if (distanceWidth <= 0 || (otherPlayer.getCoordinates().indexOf(nextPosition)) >= 0 || (this.getCoordinates().indexOf(nextPosition) >= 0)) this.turnUpDown(otherPlayer);
     };
@@ -227,7 +225,6 @@ function LightCycle (name, x, y, direction, color) {
     this.predictUp = function (otherPlayer) {
         var nextUp = this.currentY - this.height;
         var nextPosition = this.currentX+","+nextUp;
-        var distanceWidth = Grid.width - this.currentX;
         var distanceHeight = Grid.height - nextUp;
         distanceHeight += this.height;
         if (distanceHeight >= Grid.height || (otherPlayer.getCoordinates().indexOf(nextPosition)) >= 0 || (this.getCoordinates().indexOf(nextPosition) >= 0)) this.turnLeftRight(otherPlayer);
@@ -236,31 +233,38 @@ function LightCycle (name, x, y, direction, color) {
     this.predictDown = function (otherPlayer) {
         var nextDown = this.currentY + this.height;
         var nextPosition = this.currentX+","+nextDown;
-        var distanceWidth = Grid.width - this.currentX;
         var distanceHeight = Grid.height - nextDown;
         distanceHeight -= this.height;
         if (distanceHeight <= 0 || (otherPlayer.getCoordinates().indexOf(nextPosition)) >= 0 || (this.getCoordinates().indexOf(nextPosition) >= 0)) this.turnLeftRight(otherPlayer);
     };
     
     this.turnUpDown = function (otherPlayer) {
-        switch (this.direction) {
-        case "left":
-            this.direction = "down";
-            break;
-        case "right":
+        var nextUp = this.currentY - this.height;
+        var nextDown = this.currentY + this.height;
+        var distanceUp = Grid.height - nextUp + this.height;
+        if (distanceUp < Grid.height && otherPlayer.getCoordinates().indexOf(this.currentX+","+nextUp) < 0 && this.getCoordinates().indexOf(this.currentX+","+nextUp) < 0) { 
             this.direction = "up";
-            break;
+            return;
+        }
+        var distanceDown = Grid.height + nextUp - this.height;
+        if (distanceDown > 0 && otherPlayer.getCoordinates().indexOf(this.currentX+","+nextDown) < 0 && this.getCoordinates().indexOf(this.currentX+","+nextDown) < 0) {
+            this.direction = "down";
+            return;
         }
     };
     
     this.turnLeftRight = function (otherPlayer) {
-        switch (this.direction) {
-        case "up":
+        var nextLeft = this.currentX - this.height;
+        var nextRight = this.currentX + this.height;
+        var distanceLeft = Grid.width - nextLeft + this.height;
+        if (distanceLeft < Grid.width && otherPlayer.getCoordinates().indexOf(nextLeft+","+this.currentY) < 0 && this.getCoordinates().indexOf(nextLeft+","+this.currentY) < 0) {
             this.direction = "left";
-            break;
-        case "down":
+            return;
+        }
+        var distanceRight = Grid.width - nextRight + this.height;
+        if (distanceRight > 0 && otherPlayer.getCoordinates().indexOf(nextRight+","+this.currentY) < 0 && this.getCoordinates().indexOf(nextRight+","+this.currentY) < 0) {
             this.direction = "right";
-            break;
+            return;
         }
     };
     
