@@ -269,18 +269,3 @@ function LightCycle (name, x, y, direction, color) {
     };
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
