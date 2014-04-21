@@ -2,11 +2,14 @@ Tr0nJS
 ======
 
  Tron-like game, made in JavaScript
+ 
+ Update: 04/21/2014
 
 ======
 
 ==ALPHA VERSION - DESKTOP==
 
+You can test it at this URL: http://www.kflynn.net/TronJS/index.html.
 You can send me your impressions at antonin[dot]carette[at]etudiant[dot]univ-lille1[dot]fr. Thank you.
 
 ======
