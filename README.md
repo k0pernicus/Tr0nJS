@@ -5,10 +5,11 @@ Tr0nJS
 
 ======
 
-==Currently being programmed==
+==ALPHA VERSION - DESKTOP==
+
+You can send me your impressions at antonin[dot]carette[at]etudiant[dot]univ-lille1[dot]fr. Thank you.
 
 ======
 
-1.	Added correction to the IA in the case of a change of control
-2.	Build an elegant menu</br>
-3.	Refactoring code</br>
+1.	Build an elegant menu</br>
+2.	Refactoring code</br>
