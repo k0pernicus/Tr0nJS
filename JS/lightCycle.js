@@ -166,11 +166,8 @@ function LightCycle (name, x, y, direction, color) {
      move is a function which be able to the lightCycle to move on the grid
      */
     this.move = function () {
-        var otherPlayer;
-        if (this.name == "Programmer") otherPlayer = program;
-        else otherPlayer = programmer;
         this.calculatingCoordinates();
-        if (this.coordinates.indexOf(this.checkNextPosition()) >= 0) Grid.renew(otherPlayer);
+        if (this.coordinates.indexOf(this.checkNextPosition()) >= 0) Grid.renew(program);
         this.pushCoordinates();
     };
     
@@ -182,6 +179,7 @@ function LightCycle (name, x, y, direction, color) {
     this.predict = function (otherPlayer) {
         this.simplePredict(otherPlayer);
         this.calculatingCoordinates();
+        if (this.coordinates.indexOf(this.checkNextPosition()) >= 0) Grid.renew(programmer);
         this.pushCoordinates();
     };
     
