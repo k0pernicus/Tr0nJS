@@ -9,7 +9,7 @@ Tr0nJS
 
 ==ALPHA VERSION - DESKTOP==
 
-You can test it at this URL: http://www.kflynn.net/TronJS/index.html.
+You can test it at this URL: http://www.kflynn.net/Tr0nJS/index.html.
 You can send me your impressions at antonin[dot]carette[at]etudiant[dot]univ-lille1[dot]fr. Thank you.
 
 ======
